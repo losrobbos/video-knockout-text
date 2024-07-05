@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video transparent text</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-size: 8rem;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .knockout {
+      /* height: 150px; */
+      /* width: 50vw; */
+      text-transform: uppercase;
+      /* margin: auto; */
+      font-family: 'Bowlby One SC', cursive;
+    }
+
+    .knockout-text-container {
+      position: absolute;      
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+    rect {
+      width: 100%;
+      height: 100%; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="knockout">
+    <video src="./quallen.mp4" autoplay muted loop></video>
+        <svg class="knockout-text-container">
+          <rect class="knockout-text-bg" fill="#000" x="0" y="0" fill-opacity="1" mask="url(#knockout-text)" />
+          <mask id="knockout-text">
+            <rect fill="#fff" x="0" y="0" />
+            <text x="50%" y="50%" fill="#000" text-anchor="middle">WOAAAH</text>
+          </mask>
+        </svg>
+
+  </div>
+
+  
+</body>
+</html>
