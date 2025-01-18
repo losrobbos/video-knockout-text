@@ -20,13 +20,8 @@
       height: 100vh;
     }
 
-    .knockout {
-      text-transform: uppercase;
-      font-family: 'Bowlby One SC', cursive;
-      font-size: clamp(5rem, 20vw, 12rem);
-    }
-
-    .knockout-text-container {
+    /* svgs can be positioned like any other HTML elements */
+    svg {
       position: absolute;
       top: 0;
       left: 0;
@@ -38,22 +33,35 @@
       width: 100vw;
       height: 100vh;
     }
+
+    mask > rect {
+      fill: #fff; 
+    }
+
+    svg text {
+      text-transform: uppercase;
+      font-family: 'Bowlby One SC', cursive;
+      font-size: clamp(5rem, 20vw, 12rem);
+    }
   </style>
 </head>
 
 <body>
-
-  <div class="knockout">
+  <main>
+    <!-- background video -->
     <video src="./quallen.mp4" autoplay muted loop></video>
-    <svg class="knockout-text-container">
-      <rect class="knockout-text-bg" fill="#000" x="0" y="0" fill-opacity="1" mask="url(#knockout-text)" />
+    <svg>
+      <!-- black rectangle with a text mask (=part to get cut out of rectangle) -->
+      <rect x="0" y="0" mask="url(#knockout-text)" />
       <mask id="knockout-text">
-        <rect fill="#fff" x="0" y="0" />
-        <text x="50%" y="50%" fill="#000" text-anchor="middle">WOAAAH</text>
+        <!-- mask rect (overlaying whole background rect) -->
+        <rect x="0" y="0" />
+        <!-- text to cut out of rect -->
+        <text x="50%" y="50%" text-anchor="middle">WOAAAH</text>
       </mask>
     </svg>
 
-  </div>
+  </main>
 
 
 </body>
